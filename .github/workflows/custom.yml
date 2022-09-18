@@ -23,7 +23,7 @@ jobs:
           echo $WORKFLOW_VARIABLE
           echo $JOB_VARIABLE
           echo $STEP_VARIABLE
+          
 
-  
 
 
