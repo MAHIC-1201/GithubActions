@@ -34,3 +34,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          
+      - name: Close Stale Issues
+        uses: actions/stale@v5.2.0
+        
