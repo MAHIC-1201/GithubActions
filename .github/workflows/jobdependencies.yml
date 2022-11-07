@@ -1,18 +1,19 @@
 name: job-dependencies-series
 on: 
-  workflow_dispatch
+  push:
+    branches: ['main']
 jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      -run: ./setup_server.sh
+      - run: ./setup_server.sh
   build: 
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      -run: ./build_server.sh
+      - run: ./build_server.sh
   test:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      -run: ./test_server.sh
+      - run: ./test_server.sh
