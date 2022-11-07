@@ -2,6 +2,7 @@ name: job-dependencies-series
 on: 
   push:
     branches: ['main']
+ 
 jobs:
   setup:
     runs-on: ubuntu-latest
