@@ -32,6 +32,7 @@ jobs :
          echo $job2
          sts=$?
          echo $sts
+         
   job3: 
     needs: job2
     strategy:
