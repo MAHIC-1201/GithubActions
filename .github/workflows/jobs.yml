@@ -28,7 +28,10 @@ jobs :
         os: [ubuntu-latest, windows-latest,macOS-latest]
     runs-on: ${{matrix.os}}
     steps:
-      - run : ./server_shell.sh
+      - run : |
+         echo $job2
+         sts=$?
+         echo $sts
   job3: 
     needs: job2
     strategy:
