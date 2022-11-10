@@ -28,8 +28,7 @@ jobs :
         os: [ubuntu-latest, windows-latest,macOS-latest]
     runs-on: ${{matrix.os}}
     steps:
-      - run : |
-         echo env
+      - run : env
          
   job3: 
     needs: job2
