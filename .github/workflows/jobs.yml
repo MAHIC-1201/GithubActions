@@ -29,9 +29,7 @@ jobs :
     runs-on: ${{matrix.os}}
     steps:
       - run : |
-         echo $job2
-         sts=$?
-         echo $sts
+         echo env
          
   job3: 
     needs: job2
