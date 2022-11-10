@@ -18,7 +18,7 @@ jobs :
     runs-on: ${{matrix.os}}
     steps: 
       - run: |
-         echo "$JOB1_VARIABLE"    
+         echo $JOB1_VARIABLE    
   job2: 
     env: 
       JOB2_VARIABLE: "THIS IS VARIABLE FOR JOB2"
@@ -28,7 +28,7 @@ jobs :
         os: [ubuntu-latest, windows-latest,macOS-latest]
     runs-on: ${{matrix.os}}
     steps:
-      - run : echo "$job2_variable"
+      - run : echo $job2_variable
   job3: 
     needs: job2
     strategy:
