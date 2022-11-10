@@ -1,4 +1,4 @@
-name: job-dependencies
+name: job-dependencies-workshop
 on :
   push: 
     branches: ['main']
