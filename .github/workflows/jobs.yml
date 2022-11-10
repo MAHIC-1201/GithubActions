@@ -28,7 +28,7 @@ jobs :
         os: [ubuntu-latest, windows-latest,macOS-latest]
     runs-on: ${{matrix.os}}
     steps:
-      - run : echo $job2_variable
+      - run : echo $job2
   job3: 
     needs: job2
     strategy:
