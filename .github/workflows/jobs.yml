@@ -1,0 +1,56 @@
+name: job-depenedencies
+on :
+  push: 
+    branches: ['main']
+  pull_request: ['main']
+  workflow_dispatch:
+  
+jobs :
+  job1: 
+  env: 
+  JOB1_VARIABLE: "THIS IS VARIABLE FOR JOB 1 "
+    strategy:
+        matrix:
+          version: [10, 12, 14]
+          os: [ubuntu-latest, windows-latest,macOS-latest]
+    steps: 
+      env: 
+      STEP_VARIABLE: "THIS IS A STEP VARIABLE"
+      run: |
+      echo "$STEP_VARIABLE"
+      echo "$JOB1_VARIABLE"
+      
+  job2: 
+  env: 
+  JOB2_VARIABLE: "THIS IS VARIABLE FOR JOB2"
+  strategy:
+        matrix:
+          version: [10, 12, 14]
+          os: [ubuntu-latest, windows-latest,macOS-latest]
+  steps:
+    run : echo "$job2_variable"
+  job3: 
+  needs: job2
+  strategy:
+        matrix:
+          version: [10, 12, 14]
+          os: [ubuntu-latest, windows-latest,macOS-latest]
+  steps: 
+    run: echo "JOB3 RUNS ONLY IF JOB2 SUCCEEDS"
+ job4:
+ if : always()
+ needs: job2
+ strategy:
+        matrix:
+          version: [10, 12, 14]
+          os: [ubuntu-latest, windows-latest,macOS-latest]
+ steps:
+   run: echo "JOB4 RUNS EVEN IF JOB2 FAILS"
+  
+          
+  
+  
+  
+  
+  
+  
