@@ -9,6 +9,9 @@ jobs:
   build: # job 1 identifier
     name: Build
     runs-on: ubuntu-latest
+    defaults : 
+      run:
+       working-directory: ./my-app
 
     steps:
     - name: Clone repo & checkout code
