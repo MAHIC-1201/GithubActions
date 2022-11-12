@@ -4,14 +4,14 @@ on: # attribute determines how workflow gets triggered
   push: # triggers on a`push` to the `main` branch
     branches: [ main ]
   workflow_dispatch: # triggers manually
-
+defaults : 
+    run:
+     working-directory: ./my-app
 jobs:
   build: # job 1 identifier
     name: Build
     runs-on: ubuntu-latest
-    defaults : 
-      run:
-       working-directory: ./my-app
+   
 
     steps:
     - name: Clone repo & checkout code
