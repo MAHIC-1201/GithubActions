@@ -39,7 +39,7 @@ jobs:
       # uploads build files to be accessible across jobs
       with:
         name: production
-        path: ./build
+        path: ./my-app/build
 
   deploy: # job 2 identifier
     name: Deploy
