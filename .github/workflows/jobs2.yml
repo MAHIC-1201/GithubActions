@@ -8,33 +8,33 @@ on:
 jobs:
   job1:
     env:
-    JOB1_VARIABLE: "THIS IS THE VARIABLE FOR JOB1"
+      JOB1_VARIABLE: "THIS IS THE VARIABLE FOR JOB1"
     strategy:
       matrix:
         version: [10,12,14]
         os: [ubuntu-latest,windows-latest,macOS-latest]
     runs-on: ${{matrix.os}}
     steps:
-    -run: echo "$JOB1_VARIABLE"
+      - run: echo "$JOB1_VARIABLE"
   job2:
     env:
-    JOB2_VARIABLE: "THIS IS THE VARIABLE FOR JOB2"
+      JOB2_VARIABLE: "THIS IS THE VARIABLE FOR JOB2"
     strategy:
       matrix:
         version: [10,12,14]
         os: [windows-latest,macOSlatest,ubuntu-latest]
     runs-on: ${{matrix.os}}
     steps:
-    -run: ./server.sh
+    - run: ./server.sh
   job3: 
     needs: job2
-    startegy:
+    strategy:
       matrix: 
         version: [10,12,14]
         os: [windows-latest,macOSlatest,ubuntu-latest]
     runs-on: ${{matrix.os}}
     steps:
-    -run: "JOB 3 ONLY RUNS IF JOB 2 SUCCEEDS"
+     - run: "JOB 3 ONLY RUNS IF JOB 2 SUCCEEDS"
   job4: 
     if: always()
     needs: job2
@@ -44,6 +44,6 @@ jobs:
         os: [ubuntu-latest, windows-latest,macOS-latest]
     runs-on: ${{matrix.os}}
     steps:
-    -run: "JOB4 RUNS EVEN AFTER JOB2 FAILS"
+     - run: "JOB4 RUNS EVEN AFTER JOB2 FAILS"
     
     
